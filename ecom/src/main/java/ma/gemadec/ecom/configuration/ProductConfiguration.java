@@ -1,4 +1,3 @@
-/*
 package ma.gemadec.ecom.configuration;
 
 import ma.gemadec.ecom.models.Product;
@@ -6,7 +5,12 @@ import ma.gemadec.ecom.services.ProductService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
+import java.util.Arrays;
 import java.util.Date;
 
 @Configuration
@@ -17,7 +21,7 @@ public class ProductConfiguration {
         this.productService = productService;
     }
 
-    @Bean
+  /*  @Bean
     CommandLineRunner initProduct(){
         return args -> {
             productService.create(new Product(
@@ -60,6 +64,25 @@ public class ProductConfiguration {
                     new Date()
             ));
         };
+    }*/
+
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.setAllowCredentials(false);
+        corsConfiguration.addAllowedOrigin("*");
+        corsConfiguration.addAllowedHeader("*");
+        corsConfiguration.addExposedHeader("*");
+        corsConfiguration.setAllowedMethods(Arrays.asList(
+                HttpMethod.GET.name(),
+                HttpMethod.HEAD.name(),
+                HttpMethod.POST.name(),
+                HttpMethod.PUT.name(),
+                HttpMethod.OPTIONS.name(),
+                HttpMethod.DELETE.name()));
+        urlBasedCorsConfigurationSource.registerCorsConfiguration("/**",corsConfiguration);
+        return new CorsFilter(urlBasedCorsConfigurationSource);
     }
 }
-*/
+
