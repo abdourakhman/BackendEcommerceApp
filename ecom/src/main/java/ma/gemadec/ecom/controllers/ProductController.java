@@ -18,6 +18,10 @@ public class ProductController {
     public List<Product> getAllProducts(){
         return productService.listAll();
     }
+    @GetMapping("/products/{key}")
+    public List<Product> searchProducts(@PathVariable String key){
+        return productService.searchProduct(key);
+    }
 
     @GetMapping("/product/{id}")
     public Product findProduct(@PathVariable Long id){

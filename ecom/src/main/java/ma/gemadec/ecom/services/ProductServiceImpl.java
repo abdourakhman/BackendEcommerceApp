@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -41,5 +43,18 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void delete(Long productID) {
         productRepository.deleteById(productID);
+    }
+
+    @Override
+    public List<Product> searchProduct(String key) {
+        String term = key.toLowerCase();
+        return productRepository.findAll()
+                .stream()
+                .filter(
+                        (product ->
+                                product.getTitle().toLowerCase().indexOf(term)!=-1 ||
+                                        product.getDescription().toLowerCase().indexOf(term)!=-1 ||
+                                        product.getSupplier().toLowerCase().indexOf(term)!=-1))
+                .collect(Collectors.toList());
     }
 }

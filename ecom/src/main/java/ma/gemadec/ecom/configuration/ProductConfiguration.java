@@ -1,3 +1,4 @@
+/*
 package ma.gemadec.ecom.configuration;
 
 import ma.gemadec.ecom.models.Product;
@@ -61,3 +62,4 @@ public class ProductConfiguration {
         };
     }
 }
+*/

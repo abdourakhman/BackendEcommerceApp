@@ -10,4 +10,5 @@ public interface ProductService {
     List<Product> listAll();
     Product find(Long productID);
     void delete(Long productID);
+    List<Product> searchProduct(String key);
 }
