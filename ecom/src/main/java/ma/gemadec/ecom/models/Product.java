@@ -19,5 +19,6 @@ public class Product {
     private String imageUrl;
     private String description;
     private String location;
+    private double price;
     private Date createdAt;
 }
