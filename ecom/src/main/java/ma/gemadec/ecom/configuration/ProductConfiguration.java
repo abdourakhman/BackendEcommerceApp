@@ -71,7 +71,7 @@ public class ProductConfiguration {
         UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowCredentials(false);
-        corsConfiguration.addAllowedOrigin("*");
+        corsConfiguration.setAllowedOrigins(Arrays.asList("http://10.0.2.2:8080"));
         corsConfiguration.addAllowedHeader("*");
         corsConfiguration.addExposedHeader("*");
         corsConfiguration.setAllowedMethods(Arrays.asList(
