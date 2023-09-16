@@ -1,9 +1,6 @@
 package ma.gemadec.ecom.models;
 
-import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
 import lombok.*;
-import ma.gemadec.ecom.enumerations.Role;
-import org.apache.el.stream.Stream;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,7 +8,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 

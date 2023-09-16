@@ -1,7 +1,6 @@
 package ma.gemadec.ecom.services;
 
 import lombok.RequiredArgsConstructor;
-import ma.gemadec.ecom.enumerations.Role;
 import ma.gemadec.ecom.models.User;
 import ma.gemadec.ecom.models.auth.AuthenticationRequest;
 import ma.gemadec.ecom.models.auth.AuthenticationResponse;
