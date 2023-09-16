@@ -1,11 +1,9 @@
 package ma.gemadec.ecom.models;
 
 import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import ma.gemadec.ecom.enumerations.Role;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,8 +16,9 @@ import java.util.Collection;
 @Data @Builder
 @NoArgsConstructor @AllArgsConstructor
 public class User implements UserDetails {
+    //On utilise ObjectID pour que l'id soit auto généré
     @Id
-    private Integer id;
+    private ObjectId id;
     private String firstname;
     private String lastname;
     private String username;

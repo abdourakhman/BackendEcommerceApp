@@ -26,7 +26,7 @@ public class SecurityConfig {
     public SecurityFilterChain secure(HttpSecurity http) throws Exception{
         http
                 .csrf(csrf-> csrf.disable())
-                .authorizeHttpRequests(req -> req.requestMatchers(new AntPathRequestMatcher("/api/ecom/auth/**"))
+                .authorizeHttpRequests(req -> req.requestMatchers(new AntPathRequestMatcher("/api/auth/**"))
                         .permitAll()
                         .anyRequest()
                         .authenticated())
