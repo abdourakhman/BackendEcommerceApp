@@ -3,6 +3,7 @@ package ma.gemadec.ecom.models;
 import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
 import lombok.*;
 import ma.gemadec.ecom.enumerations.Role;
+import org.apache.el.stream.Stream;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,6 +13,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.stream.Collectors;
+
 @Document(collection = "users")
 @Data @Builder
 @NoArgsConstructor @AllArgsConstructor
@@ -25,10 +28,10 @@ public class User implements UserDetails {
     private String password;
     private String email;
     private String location;
-    private Collection<Role> roles;
+    private Collection<String> roles;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority(roles.toString()));
+        return roles.stream().map(role ->new SimpleGrantedAuthority(role.toString())).collect(Collectors.toList());
         //TODO:create an string enum for role
     }
 

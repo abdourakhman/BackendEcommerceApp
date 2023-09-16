@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -28,7 +29,7 @@ public class AuthenticationService {
                 .email((req.getEmail()))
                 .password(passwordEncoder.encode(req.getPassword()))
                 .location(req.getLocation())
-                .roles(Arrays.asList(Role.USER))
+                .roles(List.of("USER"))
                 .build();
         userRepository.save(user);
         String jwt = jwtService.generateToken(user);
