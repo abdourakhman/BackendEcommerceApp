@@ -2,6 +2,7 @@ package ma.gemadec.ecom.services;
 
 import ma.gemadec.ecom.models.Product;
 import ma.gemadec.ecom.repositories.ProductRepository;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -19,7 +20,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product create(Product product) {
-        product.setId(System.currentTimeMillis());
         product.setCreatedAt(new Date());
         return productRepository.save(product);
     }
@@ -36,12 +36,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product find(Long productID) {
+    public Product find(ObjectId productID) {
         return productRepository.findById(productID).orElseGet(null);
     }
 
     @Override
-    public void delete(Long productID) {
+    public void delete(ObjectId productID) {
         productRepository.deleteById(productID);
     }
 

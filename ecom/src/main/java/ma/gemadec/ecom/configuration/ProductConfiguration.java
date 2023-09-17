@@ -25,7 +25,8 @@ public class ProductConfiguration {
     CommandLineRunner initProduct(){
         return args -> {
             productService.create(new Product(
-                    System.currentTimeMillis(),
+                    null,
+                    null,
                     "canapé en velours bleu",
                     "Deco EXPRESS",
                     "https://cdn.conforama.fr/prod/product/image/2cc7/G_CNF_D21586846_B.jpeg",
@@ -36,7 +37,8 @@ public class ProductConfiguration {
                     ));
 
             productService.create(new Product(
-                    System.currentTimeMillis(),
+                    null,
+                    null,
                     "salon coloré",
                     "Marie Claire Maison",
                     "https://cache.marieclaire.fr/data/photo/w1000_ci/65/salon-colore-design.jpg",
@@ -47,7 +49,8 @@ public class ProductConfiguration {
             ));
 
             productService.create(new Product(
-                    System.currentTimeMillis(),
+                    null,
+                    null,
                     "écran blue ray",
                     "AMAZON",
                     "https://s3-eu-west-1.amazonaws.com/lacablerie-web-prod/help/cest-quoi-un-indice-de-fluidite-tv/tv-4kuhd.jpg",
@@ -58,7 +61,8 @@ public class ProductConfiguration {
             ));
 
             productService.create(new Product(
-                    System.currentTimeMillis(),
+                    null,
+                    null,
                     "meuble salon",
                     "Marie claire maison",
                     "https://cache.marieclaire.fr/data/photo/w1000_ci/6h/meuble-de-salon-pas-cher.jpg",

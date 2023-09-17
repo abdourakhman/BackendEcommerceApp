@@ -16,8 +16,7 @@ import java.util.Collection;
 public class Order {
     @Id
     private ObjectId id;
-    @DBRef
-    private User user;
+    private ObjectId userID;
     private Collection<Product> products;
     private int quantity;
     private double subtotal;

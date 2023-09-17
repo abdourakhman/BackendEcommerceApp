@@ -2,6 +2,7 @@ package ma.gemadec.ecom.controllers;
 
 import ma.gemadec.ecom.models.Product;
 import ma.gemadec.ecom.services.ProductService;
+import org.bson.types.ObjectId;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class ProductController {
     }
 
     @GetMapping("/product/{id}")
-    public Product findProduct(@PathVariable Long id){
+    public Product findProduct(@PathVariable ObjectId id){
         return productService.find(id);
     }
 
@@ -38,7 +39,7 @@ public class ProductController {
         return productService.update(product);
     }
     @DeleteMapping("/product/{id}")
-    public void deleteProduct(@PathVariable Long id){
+    public void deleteProduct(@PathVariable ObjectId id){
         productService.delete(id);
     }
 }
