@@ -73,24 +73,5 @@ public class ProductConfiguration {
             ));
         };
     }
-
-    @Bean
-    public CorsFilter corsFilter() {
-        UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowCredentials(false);
-        corsConfiguration.setAllowedOrigins(Arrays.asList("http://10.0.2.2:8080"));
-        corsConfiguration.addAllowedHeader("*");
-        corsConfiguration.addExposedHeader("*");
-        corsConfiguration.setAllowedMethods(Arrays.asList(
-                HttpMethod.GET.name(),
-                HttpMethod.HEAD.name(),
-                HttpMethod.POST.name(),
-                HttpMethod.PUT.name(),
-                HttpMethod.OPTIONS.name(),
-                HttpMethod.DELETE.name()));
-        urlBasedCorsConfigurationSource.registerCorsConfiguration("/**",corsConfiguration);
-        return new CorsFilter(urlBasedCorsConfigurationSource);
-    }
 }
 

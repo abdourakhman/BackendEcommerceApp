@@ -30,9 +30,10 @@ public class AuthenticationService {
                 .location(req.getLocation())
                 .roles(List.of("USER"))
                 .build();
-        userRepository.save(user);
+        User newUser = userRepository.save(user);
         String jwt = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
+                .user(newUser)
                 .token(jwt)
                 .build();
     }
@@ -47,6 +48,7 @@ public class AuthenticationService {
         User user = userRepository.findUserByEmail(req.getEmail()).orElseThrow();
         String jwt = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
+                .user(user)
                 .token(jwt)
                 .build();
     }
