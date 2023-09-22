@@ -21,7 +21,7 @@ public class ProductConfiguration {
         this.productService = productService;
     }
 
-    @Bean
+    //@Bean
     CommandLineRunner initProduct(){
         return args -> {
             productService.create(new Product(
