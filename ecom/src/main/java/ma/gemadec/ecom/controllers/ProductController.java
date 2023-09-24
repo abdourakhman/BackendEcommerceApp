@@ -5,6 +5,7 @@ import ma.gemadec.ecom.services.ProductService;
 import org.bson.types.ObjectId;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -25,13 +26,17 @@ public class ProductController {
     }
 
     @GetMapping("/product/{id}")
-    public Product findProduct(@PathVariable ObjectId id){
+    public Product findProduct(@PathVariable int id){
         return productService.find(id);
     }
 
     @PostMapping("/product")
     public Product saveProduct(@RequestBody Product product){
         return productService.create(product);
+    }
+    @PostMapping("/products")
+    public List<Product> getAllProducts(@RequestBody int[] productIDs){
+        return productService.find(productIDs);
     }
 
     @PutMapping("/product")

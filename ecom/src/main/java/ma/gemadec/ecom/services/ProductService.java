@@ -9,7 +9,8 @@ public interface ProductService {
     Product create(Product product);
     Product update(Product product);
     List<Product> listAll();
-    Product find(ObjectId productID);
+    Product find(int productID);
+    List<Product> find(int[] productIDs);
     void delete(ObjectId productID);
     List<Product> searchProduct(String key);
 }

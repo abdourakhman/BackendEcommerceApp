@@ -5,8 +5,10 @@ import ma.gemadec.ecom.repositories.ProductRepository;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,8 +38,27 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product find(ObjectId productID) {
-        return productRepository.findById(productID).orElseGet(null);
+    public Product find(int productID) {
+        Optional<Product> optionalProduct =  productRepository.findAll()
+                .stream()
+                .filter(product -> product.getId().getTimestamp() == productID)
+                .findFirst();
+        return optionalProduct.orElse(null);
+    }
+
+    @Override
+    public List<Product> find(int[] productIDs) {
+        List<Product> products = new ArrayList<>();
+        for (int productID : productIDs){
+            Optional<Product> optionalProduct= productRepository.findAll()
+                    .stream()
+                    .filter(product -> product.getId().getTimestamp()==productID)
+                    .findFirst();
+            if(optionalProduct.isPresent()){
+                products.add(optionalProduct.get());
+            }
+        }
+        return products;
     }
 
     @Override

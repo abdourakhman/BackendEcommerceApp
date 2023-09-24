@@ -21,7 +21,7 @@ public class ProductConfiguration {
         this.productService = productService;
     }
 
-    //@Bean
+    @Bean
     CommandLineRunner initProduct(){
         return args -> {
             productService.create(new Product(
@@ -35,7 +35,7 @@ public class ProductConfiguration {
                     270000,
                     new Date()
                     ));
-
+            Thread.sleep(2000);
             productService.create(new Product(
                     null,
                     null,
@@ -47,6 +47,7 @@ public class ProductConfiguration {
                     422000,
                     new Date()
             ));
+            Thread.sleep(2000);
 
             productService.create(new Product(
                     null,
@@ -59,6 +60,7 @@ public class ProductConfiguration {
                     287000,
                     new Date()
             ));
+            Thread.sleep(2000);
 
             productService.create(new Product(
                     null,
