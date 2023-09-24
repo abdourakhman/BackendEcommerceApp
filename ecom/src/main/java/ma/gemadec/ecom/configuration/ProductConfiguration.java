@@ -73,6 +73,28 @@ public class ProductConfiguration {
                     362000,
                     new Date()
             ));
+            productService.create(new Product(
+                    null,
+                    null,
+                    "Iphone 14 pro max",
+                    "Apple",
+                    "https://imageio.forbes.com/specials-images/imageserve/6321aca5df0a9fa9eee9950b/0x0.jpg",
+                    "Cameras: Rear 48 megapixel wide, 12 megapixel ultra wide, 12 megapixel telephoto; front 12 megapixel | Processor: Apple A 16 Bionic | Display: 6.1-inch OLED, 120Hz display 2,556 x 1,179 pixels, 460 pixels per inch| Storage: 128GB (up to 1TB) | Battery: Up to 22 hours video playback | Dimensions: 5.8 x 2.8 x 0.3 inches | Weight: 7.3 ounces",
+                    "Senegal,dakar",
+                    500000,
+                    new Date()
+            ));
+            productService.create(new Product(
+                    null,
+                    null,
+                    "Apple watch series 8",
+                    "Apple",
+                    "https://www.rollingstone.com/wp-content/uploads/2022/09/apple-watch-series-8-feature-image.jpg",
+                    "The Apple Watch Series 8 has a pretty similar design to that of the Series 7, including an almost bezel-less display and larger screen compared to its predecessors. If you haven’t upgraded your Apple Watch in a few years, you’ll definitely notice the larger screen (now available in 41mm or 45m) and crisp always-on display. ",
+                    "Senegal,dakar",
+                    271000,
+                    new Date()
+            ));
         };
     }
 }
