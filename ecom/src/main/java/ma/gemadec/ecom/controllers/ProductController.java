@@ -1,5 +1,6 @@
 package ma.gemadec.ecom.controllers;
 
+import ma.gemadec.ecom.models.CartItem;
 import ma.gemadec.ecom.models.Product;
 import ma.gemadec.ecom.services.ProductService;
 import org.bson.types.ObjectId;

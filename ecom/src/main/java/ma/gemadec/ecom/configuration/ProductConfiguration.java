@@ -21,7 +21,7 @@ public class ProductConfiguration {
         this.productService = productService;
     }
 
-    @Bean
+    //@Bean
     CommandLineRunner initProduct(){
         return args -> {
             productService.create(new Product(
@@ -35,7 +35,7 @@ public class ProductConfiguration {
                     270000,
                     new Date()
                     ));
-            Thread.sleep(2000);
+            Thread.sleep(2000); //je me base sur le timestamp pour travailler avec les produit, j'ai besoin donc d'obserserver un temps d'attente sinon certains produits auront le meme timestamp
             productService.create(new Product(
                     null,
                     null,
@@ -73,6 +73,8 @@ public class ProductConfiguration {
                     362000,
                     new Date()
             ));
+            Thread.sleep(2000);
+
             productService.create(new Product(
                     null,
                     null,
@@ -84,6 +86,8 @@ public class ProductConfiguration {
                     500000,
                     new Date()
             ));
+            Thread.sleep(2000);
+
             productService.create(new Product(
                     null,
                     null,

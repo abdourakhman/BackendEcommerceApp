@@ -1,5 +1,6 @@
 package ma.gemadec.ecom.services;
 
+import ma.gemadec.ecom.models.CartItem;
 import ma.gemadec.ecom.models.Product;
 import ma.gemadec.ecom.repositories.ProductRepository;
 import org.bson.types.ObjectId;
@@ -60,6 +61,7 @@ public class ProductServiceImpl implements ProductService {
         }
         return products;
     }
+
 
     @Override
     public void delete(ObjectId productID) {
